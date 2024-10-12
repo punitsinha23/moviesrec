@@ -6,4 +6,5 @@ Flask-WTF
 WTForms
 requests
 email-validator
+gunicorn
 SQLAlchemy
