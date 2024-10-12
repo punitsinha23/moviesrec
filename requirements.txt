@@ -1,4 +1,5 @@
 flask 
 WTForms
 Flask-WTF 
+flask_sqlalchemy
 gunicorn
