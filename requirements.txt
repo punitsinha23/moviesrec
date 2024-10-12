@@ -4,3 +4,4 @@ Flask-WTF
 flask_sqlalchemy
 flask_bcrypt
 gunicorn
+flask_login
