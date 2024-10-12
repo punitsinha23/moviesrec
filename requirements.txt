@@ -1,4 +1,4 @@
 flask 
-WTFforms
+WTForms
 Flask-WTF 
 gunicorn
