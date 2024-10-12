@@ -1,0 +1,93 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<div class="container mt-4">
+    <h5 class="card-text mb-4 mt-3">Welcome, {{ current_user.username }}!</h5><br>
+
+    <!-- Search Form -->
+    <form method="GET" action="{{ url_for('dashboard') }}" class="mb-4">
+        <div class="row">
+            <div class="col-md-3">
+                <label for="movie_name">Movie Name</label>
+                <input type="text" name="movie_name" id="movie_name" class="form-control" placeholder="Enter movie name">
+            </div>
+            <div class="col-md-3">
+                <label for="genre">Genre</label>
+                <select name="genre" id="genre" class="form-control">
+                    <option value="">Select Genre</option>
+                    <option value="Action">Action</option>
+                    <option value="Adventure">Adventure</option>
+                    <option value="Comedy">Comedy</option>
+                    <option value="Drama">Drama</option>
+                    <option value="Fantasy">Fantasy</option>
+                    <option value="Horror">Horror</option>
+                    <option value="Mystery">Mystery</option>
+                    <option value="Romance">Romance</option>
+                    <option value="Sci-Fi">Sci-Fi</option>
+                    <option value="Thriller">Thriller</option>
+                    <option value="Western">Western</option>
+                </select>
+            </div>
+            <div class="col-md-3">
+                <label for="year">Year</label>
+                <input type="text" name="year" id="year" class="form-control" placeholder="e.g. 1994">
+            </div>
+            <div class="col-md-3">
+                <label for="language">Language</label>
+                <input type="text" name="language" id="language" class="form-control" placeholder="e.g. English">
+            </div>
+        </div>
+        <div class="row mt-3">
+            <div class="col-md-3">
+                <label for="country">Country</label>
+                <input type="text" name="country" id="country" class="form-control" placeholder="e.g. USA">
+            </div>
+        </div>
+        <button type="submit" class="btn btn-primary mt-3">Search Movies</button>
+    </form>
+
+    <div class="mt-4">
+        <h3 class="mb-4 text-center">Search Results</h3>
+        <div class="row">
+            {% if recommendations %}
+                {% for movie in recommendations %}
+                <div class="col-md-4 mb-4">
+                    <div class="card h-100 shadow-sm">
+                        <img src="{{ movie.poster }}" class="card-img-top" alt="{{ movie.title }}">
+                        <div class="card-body">
+                            <h5 class="card-title">{{ movie.title }}</h5>
+                            <p class="card-text">
+                                <strong>Year:</strong> {{ movie.year }}<br>
+                                <strong>Genre:</strong> {{ movie.genre }}<br>
+                                <strong>Language:</strong> {{ movie.language }}<br>
+                                <strong>Country:</strong> {{ movie.country }}
+                            </p>
+                        </div>
+                        <div class="card-footer bg-transparent border-top-0">
+                            <a href="#" class="btn btn-outline-info">View Details</a>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            {% else %}
+                <p class="text-center">No movie recommendations available at the moment.</p>
+            {% endif %}
+        </div>
+        
+        <div class="pagination justify-content-center mt-4">
+            {% if has_prev %}
+                <a href="{{ url_for('dashboard', page=page-1, genre=request.args.get('genre'), year=request.args.get('year'), language=request.args.get('language'), country=request.args.get('country'), movie_name=request.args.get('movie_name')) }}" class="btn btn-secondary">Previous</a>
+            {% endif %}
+            
+            {% for p in range(1, total_pages + 1) %}
+                <a href="{{ url_for('dashboard', page=p, genre=request.args.get('genre'), year=request.args.get('year'), language=request.args.get('language'), country=request.args.get('country'), movie_name=request.args.get('movie_name')) }}" class="btn btn-outline-info {% if p == page %}active{% endif %}">{{ p }}</a>
+            {% endfor %}
+            
+            {% if has_next %}
+                <a href="{{ url_for('dashboard', page=page+1, genre=request.args.get('genre'), year=request.args.get('year'), language=request.args.get('language'), country=request.args.get('country'), movie_name=request.args.get('movie_name')) }}" class="btn btn-secondary">Next</a>
+            {% endif %}
+        </div>
+        
+    </div>
+</div>
+{% endblock %}

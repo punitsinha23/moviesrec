@@ -1,0 +1,137 @@
+/* main.css */
+
+/* Background image for the entire body */
+.text-with-background {
+    background-color: #f0f0f0; /* Background color of the box */
+    padding: 1rem; /* Padding to create space around the text */
+    border-radius: 10px; /* Rounded corners */
+    display: inline-block; /* Ensures the background only covers the text */
+    color: #000; /* Text color */
+}
+
+body {
+    background-image: url("{{ url_for('static', filename='background.jpg') }}"); /* Ensure this URL works */
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    height: 100vh; /* Full viewport height */
+    margin: 0;
+    padding: 0;
+}
+
+/* Ensure the jumbotron occupies the full height */
+.jumbotron {
+    height: 100vh; /* Full viewport height */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white; /* Set text color to white for contrast */
+    text-align: center;
+    padding: 2rem;
+    backdrop-filter: blur(5px); /* Blur the background */
+}
+
+/* Custom navbar styling */
+.navbar {
+    background-color: #007bff !important; /* Navbar background color */
+}
+
+.navbar-brand {
+    color: white !important; /* Navbar brand color */
+}
+
+.nav-link {
+    color: white !important; /* Navbar link color */
+}
+
+/* Jumbotron (home page) styling */
+.jumbotron {
+    background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent background for fallback */
+    background-size: cover; /* Cover the entire jumbotron */
+    background-position: center; /* Center the image */
+    border-radius: 8px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); /* Shadow effect */
+}
+
+/* Additional styling for headings and paragraphs */
+.jumbotron h1 {
+    font-family: 'Roboto', sans-serif; /* Font family for h1 */
+    color: black; /* Heading color */
+    background-color: white; /* White background for heading */
+    border: none; /* Remove border */
+    border-radius: 1cm; /* Rounded corners */
+    padding: 0.5rem 1rem; /* Padding for space */
+    width: fit-content; /* Fit to content */
+    margin: 0; /* Remove margin to avoid extra space */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Shadow effect */
+}
+
+.jumbotron p {
+    font-size: 1.1rem; /* Paragraph font size */
+}
+
+/* Main Form Styling */
+.content-section {
+    max-width: 600px;
+    margin: 50px auto;
+    background-color: rgba(255, 255, 255, 0.9); /* Semi-transparent white for better visibility */
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Legend Styling */
+legend {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #007bff;
+    border-bottom: 2px solid #007bff;
+    padding-bottom: 10px;
+}
+
+/* Form Fields */
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-control {
+    border-radius: 0.5rem;
+    padding: 0.75rem;
+    font-size: 1.1rem;
+}
+
+.form-control-label {
+    font-weight: 500;
+    margin-bottom: 5px;
+    color: #007bff;
+}
+
+/* Button Styling */
+.btn-outline-info {
+    border-radius: 0.5rem;
+    font-size: 1.1rem;
+    padding: 0.5rem 1rem;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.btn-outline-info:hover {
+    background-color: #007bff;
+    color: #fff;
+}
+
+/* Sign In Section */
+.border-top {
+    margin-top: 2rem;
+    padding-top: 1rem;
+}
+
+.border-top a {
+    color: #007bff;
+    font-weight: 500;
+}
+
+.border-top a:hover {
+    text-decoration: underline;
+}

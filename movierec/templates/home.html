@@ -1,0 +1,10 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+<div class="jumbotron" style="background-image: url('static/background.jpg'); background-size: cover; background-position: center; height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center; color: white; text-align: center; padding: 2rem; backdrop-filter: blur(5px);">
+
+    <h1 class="display-4" style="background-color: rgba(0, 0, 0, 0.5); padding: 1rem; border-radius: 15px; display: inline-block; color: white;">Movies Recommendation</h1>
+    <p class="lead" style="font-weight: bold;">Your personalized movie recommendation system.</p>
+    <a class="btn btn-primary" href="{{url_for('signup')}}">Get Started</a>
+</div>
+{% endblock %}
