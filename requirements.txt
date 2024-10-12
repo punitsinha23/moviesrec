@@ -1,7 +1,9 @@
-flask 
+Flask
+Flask-SQLAlchemy
+Flask-Bcrypt
+Flask-Login
+Flask-WTF
 WTForms
-Flask-WTF 
-flask_sqlalchemy
-flask_bcrypt
-gunicorn
-flask_login
+requests
+email-validator
+SQLAlchemy
